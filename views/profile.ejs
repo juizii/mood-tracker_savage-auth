@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+    <title>Self-improvement</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1>🌱 Welcome Back 🌱</h1>
+        <p>Let's log how you feel today!</p>
+        <div  class= "btn-move">
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+        </div>
+    </div>    
+    
+    <div class = "back">
+      <audio src="img/rainy-weather.mp3" controls></audio>
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+       
+
+          <h2>Log your feelings</h2>
+        <% if (user.local.email) { %>
+          <form action="/messages" method="POST">
+            <input type="date" placeholder= "date" name="date" required>
+            <input type="text" placeholder="message" name="msg" required>
+            <input type="text" placeholder="feeling" name="feeling" required>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <% } %>
+   
+        <h3>Daily Log</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Today's Date</th>
+              <th>Message</th>
+              <th>How did this make you feel?</th>
+              <th>Delete?</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% for(var i=0; i<messages.length; i++) { %>
+              <tr>
+                <td><%= messages[i].date %></td>
+                <td><%= messages[i].msg %></td>
+                <td><%= messages[i].feeling %></td>
+                <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+        
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
